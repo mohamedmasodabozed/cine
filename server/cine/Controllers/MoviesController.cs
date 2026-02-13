@@ -33,7 +33,6 @@ namespace cine.Controllers
                 return StatusCode(500 , "API didn't return data") ;
             }
             return Ok(TopShows);
-
         }
 
     }

@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.3" />
     <PackageReference Include="TMDbLib" Version="3.0.0" />
     <PackageReference Include="TMDbLib.Core2" Version="1.0.0" />
   </ItemGroup>

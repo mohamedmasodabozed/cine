@@ -12,7 +12,7 @@ namespace cine
             // Add services to the container.
 
             builder.Services.AddDataAccessServices(builder.Configuration);
-            builder.Services.RegisterServices(); 
+            builder.Services.RegisterServices();
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
@@ -23,8 +23,12 @@ namespace cine
                 app.MapOpenApi();
             }
 
+            app.UseCors(policy =>
+    policy.WithOrigins("http://localhost:5173") // Only allow YOUR React app
+          .AllowAnyMethod()
+          .AllowAnyHeader()
+);
             app.UseAuthorization();
-
 
             app.MapControllers();
 

@@ -16,4 +16,14 @@ function getAnime() {
     .then((res) => res.data);
   return data;
 }
-export { getMovies, getTvShows, getAnime };
+ function search(query)
+{
+  let data =  axios.get(`${baseUrl}/Movies/search?query=${query}`).then((res) => res.data);
+  return data;
+}
+function searchAnime(query)
+{
+  let data =  axios.get(`${baseUrl}/Anime/search?q=${query}`).then((res) => res.data);
+  return data;
+}
+export { getMovies, getTvShows, getAnime, search, searchAnime };

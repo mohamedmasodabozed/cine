@@ -13,5 +13,7 @@ namespace ApplicationLayer.Contracts
             Task AddMovieAsync(MovieDto movie);
             Task UpdateMovieAsync(MovieDto movie);
             Task DeleteMovieAsync(int id);
+            Task<IEnumerable<MovieDto>> SearchMoviesAsync(string query);
+
     }
 }

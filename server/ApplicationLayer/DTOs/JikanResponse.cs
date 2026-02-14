@@ -58,14 +58,13 @@ namespace ApplicationLayer.DTOs
         public JikanAired Aired { get; set; }
 
         [JsonPropertyName("score")]
-        public double? Score { get; set; }
+        public double Score { get; set; }
 
         [JsonPropertyName("rank")]
         public int? Rank { get; set; }
 
         [JsonPropertyName("synopsis")]
         public string Synopsis { get; set; }
-
         [JsonPropertyName("year")]
         public int? Year { get; set; }
 

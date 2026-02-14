@@ -34,6 +34,15 @@ namespace cine.Controllers
             }
             return Ok(TopShows);
         }
-
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchMovies([FromQuery] string query)
+        {
+            var searchResults = await _movieService.SearchMoviesAsync(query);
+            if (searchResults == null)
+            {
+                return StatusCode(500 , "API didn't return data") ;
+            }
+            return Ok(searchResults);
+        }
     }
 }

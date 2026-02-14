@@ -62,6 +62,23 @@ namespace ApplicationLayer.Services
             });
             return movieDtos;
         }
+        public async Task<IEnumerable<MovieDto>> SearchMoviesAsync(string query)
+        {
+            var searchResults = await _client.SearchMovieAsync(query);
+            var movieDtos = searchResults.Results.Select(ele => new MovieDto
+            {
+                TmdbId = ele.Id,
+                Title = ele?.Title ?? "",
+                posterUrl = ele?.PosterPath != null
+            ? $"https://image.tmdb.org/t/p/w500{ele.PosterPath}"
+            : null,
+                Description = ele?.Overview ?? "",
+                ReleaseDate =ele.ReleaseDate.GetValueOrDefault(),
+                ratings = ele.VoteAverage 
+            });
+            return movieDtos;
+
+        }
         public Task UpdateMovieAsync(MovieDto movie)
         {
             throw new NotImplementedException();
